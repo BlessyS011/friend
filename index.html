@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Our Friendship Journey</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Brush Script MT', cursive;
+      background: url('mepo.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: rgb(240, 238, 238);
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
+      padding: 60px 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 3em;
+      font-style: italic;
+      margin-bottom: 30px;
+      color: #f7f2f2;
+      text-shadow: 2px 2px 5px #000;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      max-width: 300px;
+      margin: 0 auto;
+    }
+
+    .buttons button {
+      padding: 15px 25px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 10px;
+      background-color: #69c6ff;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .buttons button:hover {
+      background-color: #d0ff14;
+    }
+
+    .popup {
+      background: rgba(0,0,0,0.85);
+      padding: 20px;
+      margin: 30px auto;
+      max-width: 700px;
+      border-radius: 15px;
+      display: none;
+    }
+
+    .popup img {
+      width: 90%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .counter {
+      font-size: 1em;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h1>Our Friendship Journey</h1>
+    
+    <div class="buttons">
+      <button onclick="showSection('story')">📖 Our Story</button>
+      <button onclick="showSection('photos')">📸 Photos</button>
+      <button onclick="showSection('video')">🎥 Video</button>
+      <button onclick="showSection('days')">📆 Days Counter</button>
+    </div>
+
+    <div id="story" class="popup">
+      <h2>Our Story</h2>
+      <p>Our friendship began in the most unexpected yet beautiful way — in August 2015, Honestly, I don’t remember the exact month or date — but I’ll never forget the way we connected that day. when we were in 8th standard. It was a school trip to Madurai Athisayam Theme Park in Madurai, a day filled with laughter, thrill, and innocent excitement. We laughed, shared dreams, and became forever friends. From school days to  every step was a blessing. 💖</p>
+    </div>
+
+    <div id="photos" class="popup">
+      <h2>Our Photos</h2>
+      <img src="1000337778.jpg" alt="Memory 1">
+      <img src="poo.jpg" alt="Memory 2">
+      <img src="1p.jpg" alt="Memory 3">
+      <img src="2p.jpg" alt="Memory 4">
+      <img src="3p.jpg" alt="Memory 5">
+      <!-- Add more photos -->
+    </div>
+
+    <div id="video" class="popup">
+      <h2>Our Video</h2>
+      <iframe width="90%" height="400" src="VID-20240819-WA0042.mp4" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div id="days" class="popup">
+      <h2>Friendship Counter</h2>
+      <div class="counter" id="counter"></div>
+    </div>
+  </div>
+
+  <script>
+    function showSection(id) {
+      document.querySelectorAll('.popup').forEach(div => div.style.display = 'none');
+      document.getElementById(id).style.display = 'block';
+    }
+
+    function updateCounter() {
+      const startDate = new Date("2018-08-15");
+      const now = new Date();
+      const diff = now - startDate;
+
+      const seconds = Math.floor(diff / 1000);
+      const minutes = Math.floor(seconds / 60);
+      const hours = Math.floor(minutes / 60);
+      const days = Math.floor(hours / 24);
+      const years = Math.floor(days / 365);
+      const months = Math.floor((days % 365) / 30);
+
+      document.getElementById('counter').innerHTML = `
+        <p>Years: ${years}</p>
+        <p>Months: ${months}</p>
+        <p>Days: ${days}</p>
+        <p>Hours: ${hours}</p>
+        <p>Minutes: ${minutes}</p>
+        <p>Seconds: ${seconds}</p>
+      `;
+    }
+
+    setInterval(updateCounter, 1000);
+  </script>
+</body>
+</html>
+
+
